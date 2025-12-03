@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SistemaDgii": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
