@@ -8,18 +8,15 @@ namespace SistemaDgii.Modelos
 {
     public class Infraccion
     {
-        // Propiedades recomendadas
         public string Tipo { get; set; }
         public DateTime Fecha { get; set; }
         public decimal Monto { get; set; }
         public bool EstaPagada { get; set; }
 
-        // Constructor vacío
         public Infraccion()
         {
         }
 
-        // Constructor con parámetros
         public Infraccion(string tipo, DateTime fecha, decimal monto, bool estaPagada)
         {
             Tipo = tipo;
@@ -28,17 +25,19 @@ namespace SistemaDgii.Modelos
             EstaPagada = estaPagada;
         }
 
-        // Método para marcar como pagada
         public void MarcarComoPagada()
         {
-            // Solo firma, sin lógica real
             EstaPagada = true;
         }
 
-        // ToString (solo firma)
         public override string ToString()
         {
-            return "";
+            string estado = EstaPagada ? "Pagada" : "Pendiente";
+
+            return $"Tipo: {Tipo}\n" +
+                   $"Fecha: {Fecha.ToShortDateString()}\n" +
+                   $"Monto: {Monto}\n" +
+                   $"Estado: {estado}";
         }
     }
 }

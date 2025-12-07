@@ -8,5 +8,8 @@ namespace SistemaDgii.Excepciones
 {
     public class MultaImpagaException : Exception
     {
+        public MultaImpagaException(string mensaje) : base(mensaje)
+        {
+        }
     }
 }

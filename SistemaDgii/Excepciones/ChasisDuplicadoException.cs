@@ -8,5 +8,8 @@ namespace SistemaDgii.Excepciones
 {
     public class ChasisDuplicadoException : Exception
     {
+        public ChasisDuplicadoException(string mensaje) : base(mensaje)
+        {
+        }
     }
 }

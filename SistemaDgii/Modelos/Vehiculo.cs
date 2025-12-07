@@ -37,10 +37,16 @@ namespace SistemaDgii.Modelos
         // Métodos abstractos / virtuales
         public abstract decimal CalcularMarbete();
 
-        public virtual string ToString()
+        public override string ToString()
         {
-            return "";
+            return $"Placa: {Placa}\n" +
+                   $"Marca: {Marca}\n" +
+                   $"Modelo: {Modelo}\n" +
+                   $"Año: {Anio}\n" +
+                   $"Chasis: {Chasis}\n" +
+                   $"Dueño: {Dueno}";
         }
+
 
         public void AgregarInfraccion(Infraccion infraccion)
         {

@@ -10,7 +10,11 @@ namespace SistemaDgii.Validaciones
     {
         public static bool EsChasisValido(this string chasis)
         {
-            return false; // Solo firma, sin lógica
+            if (string.IsNullOrWhiteSpace(chasis))
+                return false;
+
+            return chasis.Length == 17;
         }
     }
 }
+
