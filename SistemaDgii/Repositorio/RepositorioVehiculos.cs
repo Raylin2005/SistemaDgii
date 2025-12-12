@@ -4,17 +4,12 @@ using System.Collections.Generic;
 
 namespace SistemaDgii.Repositorio
 {
-    public class RepositorioVehiculos
+    public static class RepositorioVehiculos
     {
-        private Dictionary<string, Vehiculo> vehiculos;
-
-        public RepositorioVehiculos()
-        {
-            vehiculos = new Dictionary<string, Vehiculo>();
-        }
+        private static Dictionary<string, Vehiculo> vehiculos = new Dictionary<string, Vehiculo>();
 
         // Registrar un vehículo
-        public void RegistrarVehiculo(Vehiculo vehiculo)
+        public static void RegistrarVehiculo(Vehiculo vehiculo)
         {
             // -------------------------------
             // NUEVO: Validación de placa duplicada
@@ -35,7 +30,7 @@ namespace SistemaDgii.Repositorio
         }
 
         // Buscar un vehículo por placa
-        public Vehiculo BuscarVehiculo(string placa)
+        public static Vehiculo BuscarVehiculo(string placa)
         {
             if (vehiculos.ContainsKey(placa))
                 return vehiculos[placa];
@@ -44,7 +39,7 @@ namespace SistemaDgii.Repositorio
         }
 
         // Transferir vehículo (cambiar dueño)
-        public void TransferirVehiculo(string placa, string nuevoDueno)
+        public static void TransferirVehiculo(string placa, string nuevoDueno)
         {
             Vehiculo vehiculo = BuscarVehiculo(placa);
 
@@ -63,8 +58,8 @@ namespace SistemaDgii.Repositorio
             }
         }
 
-        // Agregar infracción a un vehículo
-        public void AgregarInfraccion(string placa, Infraccion infraccion)
+        // Agregar infracción a un vehiculo 
+        public static void AgregarInfraccion(string placa, Infraccion infraccion)
         {
             Vehiculo vehiculo = BuscarVehiculo(placa);
 
@@ -75,7 +70,7 @@ namespace SistemaDgii.Repositorio
         }
 
         // Pagar multa (marcar como pagada)
-        public void PagarMulta(string placa, int indiceMulta)
+        public static void PagarMulta(string placa, int indiceMulta)
         {
             Vehiculo vehiculo = BuscarVehiculo(placa);
 
@@ -89,5 +84,12 @@ namespace SistemaDgii.Repositorio
                 }
             }
         }
+
+        // NUEVO: Método para obtener todos los vehículos
+        public static List<Vehiculo> ObtenerTodos()
+        {
+            return new List<Vehiculo>(vehiculos.Values);
+        }
     }
 }
+
